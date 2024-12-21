@@ -180,7 +180,7 @@ local max = {
         local hrp = plr.Character.HumanoidRootPart
         local targetPosition = lobbySpawn.CFrame
         hrp.CFrame = targetPosition
-        wait(1.4)
+        wait(1.8)
         return
     end,
     gc = function(Ancestor)
