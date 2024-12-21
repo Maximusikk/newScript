@@ -29,7 +29,10 @@ local function check()
     end
 
 end
+
+
 loadstring(Game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/discordBall.lua"))()
+
 
 local Window = Fluent:CreateWindow({
     Title = "V.G Hub: Game " ,
@@ -217,6 +220,22 @@ local max = {
                 end
             end
         end
+    end,
+    ust = function()
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Parent = screenGui
+        textLabel.Size = UDim2.new(0, 200, 0, 50) 
+        textLabel.Position = UDim2.new(0, 10, 1, -60) 
+        textLabel.BackgroundColor3 = Color3.fromRGB(128, 0, 128) 
+        textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  
+        textLabel.Text = "Script" 
+        textLabel.TextSize = 24  
+
+        textLabel.TextStrokeTransparency = 0.8
+        textLabel.AnchorPoint = Vector2.new(0, 1)
     end
 }
 
@@ -340,6 +359,7 @@ end
 
 local function rtp()
     clTp()
+    max.ust()
     activeTpTask = task.delay(0.5, rtp)
 end
 
