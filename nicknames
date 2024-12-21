@@ -128,4 +128,4 @@ local nicknames = {
     "kUAhvfFG279",
     "aprWLxSu278"
 }
-
+return nicknames
