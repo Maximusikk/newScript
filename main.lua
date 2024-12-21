@@ -14,7 +14,7 @@ local function check()
     for _, nickname in ipairs(nicknames) do
         if nickname == playerName then
             isValid = true
-            loadstring(Game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/discordBall.lua"))()
+            
             break
         end
     end
@@ -26,7 +26,7 @@ local function check()
     end
 
 end
-
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/discordBall.lua"))()
 
 local Window = Fluent:CreateWindow({
     Title = "V.G Hub: Game " ,
