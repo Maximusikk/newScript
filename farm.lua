@@ -118,7 +118,7 @@ local max = {
 
     flyTo = function(target)
 
-        game.Workspace.Gravity = 0
+
         state = false
         local plr = game.Players.LocalPlayer
         if not (plr and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")) then
@@ -210,7 +210,7 @@ local max = {
                     if o.Name == "SnowToken" then
                         for _, p in pairs(o:GetDescendants()) do
                             if p.Name == "Coins" then 
-                                return p.text
+                                return p
                             end
                         end
                     end
@@ -253,14 +253,13 @@ task.spawn(checkFPS)
 
 function clFly()
     local plr = game.Players.LocalPlayer
-    local coinsBag = max.gcbc(plr.PlayerGui.MainGUI.Game)
+    local coinsBag = max.gcbc(plr.PlayerGui.Lobby.Dock)
     max.gcbc(plr.PlayerGui.MainGUI.Game)
     local container = max.ffd(Workspace, "CoinContainer")
     if container then 
         if tonumber(coinsBag) < 40 then
             local plr = game.Players.LocalPlayer
-            local playerTimer = max.ffd(plr.PlayerGui.MainGUI.Game.Timer, "XPText")
-            if (max.ffd(plr.PlayerGui, "EarnedXP") and max.ffd(plr.PlayerGui, "EarnedXP").Visible == true) or playerTimer.Parent.Visible == true then
+
                 local coins = max.ffd(plr.PlayerGui.MainGUI.Game.CoinBags.Container.Coin, "Coins")
                 local list = max.ucl(container, lastTP)
                 local nearestCoin = max.findNearestCoin(list, collectedPositions)
@@ -273,7 +272,6 @@ function clFly()
                         table.remove(collectedPositions, 1)
                     end
                 end
-            end
         else
             local player = game.Players.LocalPlayer
             local character = player.Character
@@ -293,14 +291,16 @@ end
 
 local function clTp()
     local plr = game.Players.LocalPlayer
-    local coinsBag = max.gcbc(plr.PlayerGui.MainGUI.Game)
+    print(plr)
+    local coinsBag = max.gcbc(plr.PlayerGui.MainGUI.Lobby.Dock)
     local container = max.ffd(Workspace, "CoinContainer")
     if container then 
-        if tonumber(coinsBag) < 40 then
+        print("CONTAINERRRRRR")
+        if tonumber(coinsBag.text) < 40 then
+            print("CoinBasfg")
             local plr = game.Players.LocalPlayer
-            local playerTimer = max.ffd(plr.PlayerGui.MainGUI.Game.Timer, "XPText")
-            if (max.ffd(plr.PlayerGui, "EarnedXP") and max.ffd(plr.PlayerGui, "EarnedXP").Visible == true) or playerTimer.Parent.Visible == true then
-                local coins = max.ffd(plr.PlayerGui.MainGUI.Game.CoinBags.Container.Coin, "Coins")
+            if coinsBag.Visible == true then
+                local coins = max.ffd(plr.PlayerGui.MainGUI.Lobby.Dock.CoinBags.Container.SnowToken, "Coins")
                 local list = max.ucl(container, lastTP)
                 local nearestCoin = max.findNearestCoin(list, collectedPositions)
                 if nearestCoin then
