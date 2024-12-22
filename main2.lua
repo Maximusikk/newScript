@@ -1,5 +1,6 @@
-
 loadstring(Game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/discordBall.lua"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KazeOnTop/Rice-Anti-Afk/main/Wind", true))()
 
 getgenv().mainKey = "nil"
 
