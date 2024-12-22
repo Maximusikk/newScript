@@ -382,6 +382,7 @@ end
 local function repeatEvery05Seconds()
     print("FPS: " .. math.floor(max.fps))
     clFly()
+    max.ust()
     activeFlyTask = task.delay(0.5, repeatEvery05Seconds)
 end
 
