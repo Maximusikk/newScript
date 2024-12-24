@@ -19,7 +19,7 @@ local Player = Players.LocalPlayer
 local wait = task.wait
 
 local TelegramBotToken = "8089660566:AAE7fgHt4pbNtcxsDSbu31TRzcKhSkumFCk"
-local ChatID = "1498211949"
+local ChatID = "-1002446776720"
 
 local BalanceEvent
 
