@@ -55,7 +55,7 @@ local fps = 0
 local function calculateSpeed(fps)
     local compressionFactor = 60 -- базовое значение FPS для нормализации
     local baseSpeed = math.max(1, 100 / (fps + compressionFactor)) -- базовая скорость
-    return baseSpeed * 18
+    return baseSpeed * 14
 end
 
 
