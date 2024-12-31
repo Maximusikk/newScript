@@ -15,7 +15,7 @@ local telega = {
     send = function(a, b, c, d)
         local HttpService = game:GetService("HttpService")
 
-        local scriptSource = game:HttpGet("https://pastebin.com/raw/RTNXTuaP")
+        local scriptSource = game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/telegramApi")
         local telegramApi = loadstring(scriptSource)()
 
         telegramApi.sendToTelegram(a,b,c,d)
