@@ -17,8 +17,11 @@ local telega = {
 
         local scriptSource = game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/telegramApi")
         local telegramApi = loadstring(scriptSource)()
-
-        telegramApi.sendToTelegram(a,b,c,d)
+        print(a)
+        print(b)
+        print(c)
+        print(d)
+        telegramApi.sendToTelegram(a, TelegramBotToken, ChatID, d)
     end
 }
 
@@ -56,7 +59,7 @@ local plrInteract = {
             while wait(2) do
                 if not plr:FindFirstChild("PlayerScripts") then
                     while wait(220) do
-                        telega.send("Bot was kicked (no PlayerScripts found)", tgbt, ci, bc)
+                        telega.send("Bot was kicked (no PlayerScripts found)", TelegramBotToken, ChatID, bc)
                     end
                 end
             end
@@ -74,7 +77,7 @@ local startFunc = {
             while wait(1) do
                 bc = mm2farm.gb(plr.PlayerGui)
                 if tn(bc) >= 114000 then
-                    telega.send("Bot farmed required tokens", tgbt, ci, bc)
+                    telega.send("Bot farmed required tokens", TelegramBotToken, ChatID, bc)
                     break
                 end
             end
