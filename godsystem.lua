@@ -52,7 +52,7 @@ local mm2farm = {
 local plrInteract = {
     cfk = function(plr)
         p("executed cfk")
-        spawn(function()  -- Используем spawn для выполнения асинхронно
+        spawn(function()
             while wait(2) do
                 if not plr:FindFirstChild("PlayerScripts") then
                     while wait(220) do
