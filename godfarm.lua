@@ -1,5 +1,13 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/godsystem.lua"))()
+-- Скачивание и запуск первого скрипта в модуле
+spawn(function()
+    local godsystem = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/godsystem.lua"))()
+    -- Запуск кода или функций из godsystem
+end)
+
+-- Задержка, затем запуск второго скрипта
 wait(10)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/subfarm.lua"))()
 
-
+spawn(function()
+    local subfarm = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maximusikk/newScript/refs/heads/main/subfarm.lua"))()
+    -- Запуск кода или функций из subfarm
+end)
