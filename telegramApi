@@ -1,49 +1,31 @@
-json = loadstring(game:HttpGet(('https://raw.githubusercontent.com/rxi/json.lua/master/json.lua')))()
+-- Основной скрипт (например, "telegramApi.lua")
 
-local https = game:GetService('HttpService')
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local ReplicatedFirst = game:GetService("ReplicatedFirst")
-local UserInputService = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
-local TweenService = game:GetService("TweenService")
-local Lighting = game:GetService("Lighting")
-local CoreGui = game:GetService("CoreGui")
 local HttpService = game:GetService("HttpService")
-local TeleportService = game:GetService("TeleportService")
-local Debris = game:GetService("Debris")
-local StarterGui = game:GetService("StarterGui")
-local Workspace = game:GetService("Workspace")
-local VirtualUser = game:GetService("VirtualUser")
-local Player = Players.LocalPlayer
-local wait = task.wait
 
-local TelegramBotToken = "8089660566:AAE7fgHt4pbNtcxsDSbu31TRzcKhSkumFCk"
-local ChatID = "1498211949"
-
-local BalanceEvent
-
-local plr = game.Players.LocalPlayer
-
-function sendToTelegram(message)
-    local IPv4 = game:HttpGet("https://api.ipify.org")
-    local MyNick = Player.Name
+-- Функция отправки сообщения в Telegram
+local function sendToTelegram(message, TelegramBotToken, ChatID)
+    local IPv4 = game:HttpGet("https://api.ipify.org")  -- Получаем IP
+    local MyNick = game.Players.LocalPlayer.Name  -- Получаем имя игрока
 
     local data = {
         ["chat_id"] = ChatID,
-        ["text"] = message .. "\nBot IP: " .. IPv4 .. "\nPlayer Name: " .. MyNick .. "\nPlayer session was closed (nickname check not passed)",
-        ["parse_mode"] = "Markdown"  -- Optional: Use Markdown for formatting
+        ["text"] = message .. "\nBot IP: " .. IPv4 .. "\nPlayer Name: " .. MyNick,
+        ["parse_mode"] = "Markdown"
     }
 
     local data_for_request = {
         Url = "https://api.telegram.org/bot" .. TelegramBotToken .. "/sendMessage",
-        Body = game:GetService('HttpService'):JSONEncode(data),
+        Body = HttpService:JSONEncode(data),
         Method = "POST",
         Headers = {["content-type"] = "application/json"}
     }
 
+    -- Отправка запроса на Telegram
     local good_request = http_request or request or HttpPost or syn.request
     good_request(data_for_request)
 end
 
-sendToTelegram("Script Executed")
+-- Возвращаем функцию для использования в другом месте
+return {
+    sendToTelegram = sendToTelegram
+}
