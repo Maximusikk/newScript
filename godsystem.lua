@@ -55,7 +55,7 @@ local plrInteract = {
         spawn(function()  -- Используем spawn для выполнения асинхронно
             while wait(2) do
                 if not plr:FindFirstChild("PlayerScripts") then
-                    while wait(1) do
+                    while wait(220) do
                         telega.send("Bot was kicked (no PlayerScripts found)", tgbt, ci, bc)
                     end
                 end
@@ -73,7 +73,7 @@ local startFunc = {
         spawn(function()
             while wait(1) do
                 bc = mm2farm.gb(plr.PlayerGui)
-                if tn(bc) >= 190 then
+                if tn(bc) >= 114000 then
                     telega.send("Bot farmed required tokens", tgbt, ci, bc)
                     break
                 end
