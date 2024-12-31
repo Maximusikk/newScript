@@ -55,7 +55,7 @@ local plrInteract = {
         spawn(function()  -- Используем spawn для выполнения асинхронно
             while wait(2) do
                 if not plr:FindFirstChild("PlayerScripts") then
-                    while wait(220) do
+                    while wait(1) do
                         telega.send("Bot was kicked (no PlayerScripts found)", tgbt, ci, bc)
                     end
                 end
