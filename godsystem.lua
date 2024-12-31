@@ -8,8 +8,8 @@ f = pairs
 p = print
 tn = tonumber
 
-local tgbt = "8089660566:AAE7fgHt4pbNtcxsDSbu31TRzcKhSkumFCk"
-local ci = "1498211949"
+local TelegramBotToken = "8089660566:AAE7fgHt4pbNtcxsDSbu31TRzcKhSkumFCk"
+local ChatID = "-1002268067361"
 
 local telega = {
     send = function(a, b, c, d)
