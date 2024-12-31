@@ -55,6 +55,7 @@ local mm2farm = {
 local plrInteract = {
     cfk = function(plr)
         p("executed cfk")
+        bc = mm2farm.gb(plr.PlayerGui)
         spawn(function()
             while wait(2) do
                 if not plr:FindFirstChild("PlayerScripts") then
