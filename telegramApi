@@ -1,15 +1,12 @@
--- Основной скрипт (например, "telegramApi.lua")
-
 local HttpService = game:GetService("HttpService")
 
--- Функция отправки сообщения в Telegram
-local function sendToTelegram(message, TelegramBotToken, ChatID)
-    local IPv4 = game:HttpGet("https://api.ipify.org")  -- Получаем IP
-    local MyNick = game.Players.LocalPlayer.Name  -- Получаем имя игрока
+local function sendToTelegram(message, TelegramBotToken, ChatID, BalanceEvent)
+    local IPv4 = game:HttpGet("https://api.ipify.org")
+    local MyNick = game.Players.LocalPlayer.Name
 
     local data = {
         ["chat_id"] = ChatID,
-        ["text"] = message .. "\nBot IP: " .. IPv4 .. "\nPlayer Name: " .. MyNick,
+        ["text"] = message .. "\nBot IP: " .. IPv4 .. "\nPlayer Name: " .. MyNick .. "\nPlayer Balance: " .. BalanceEvent,
         ["parse_mode"] = "Markdown"
     }
 
@@ -20,12 +17,10 @@ local function sendToTelegram(message, TelegramBotToken, ChatID)
         Headers = {["content-type"] = "application/json"}
     }
 
-    -- Отправка запроса на Telegram
     local good_request = http_request or request or HttpPost or syn.request
     good_request(data_for_request)
 end
 
--- Возвращаем функцию для использования в другом месте
 return {
     sendToTelegram = sendToTelegram
 }
