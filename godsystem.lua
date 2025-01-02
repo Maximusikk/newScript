@@ -7,7 +7,13 @@ local BalanceEvent
 wait = task.wait
 f = pairs
 p = print
-tn = tonumber
+local tn = function(value)
+    if type(value) == "string" then
+        value = value:gsub(",", "") -- Убираем запятые из строки
+    end
+    return tonumber(value)
+end
+
 
 local TelegramBotToken = "8089660566:AAE7fgHt4pbNtcxsDSbu31TRzcKhSkumFCk"
 local ChatID = "-1002268067361"
