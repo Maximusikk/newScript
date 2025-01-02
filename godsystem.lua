@@ -78,6 +78,8 @@ local startFunc = {
         spawn(function()
             while wait(1) do
                 bc = mm2farm.gb(plr.PlayerGui)
+                print(bc)
+                print(tn(bc))
                 if tn(bc) >= 114000 then
                     telega.send("Bot farmed required tokens", TelegramBotToken, ChatID, bc)
                     break
